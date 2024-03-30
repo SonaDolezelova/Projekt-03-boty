@@ -8,10 +8,10 @@ body {
 
 /*
  BARVY
- svetle sede pozadi      #f5f5f5
- tmavsi seda             #959595
- barevny prechod nahore  #06d7c1
- barevny prechod dole    #50cc49
+ svetle sede pozadi      #f5f5f5 ANO body, .slogan
+ tmavsi seda             #959595 ANO box-shadow, .produkt
+ barevny prechod nahore  #06d7c1 ANO .vizual
+ barevny prechod dole    #50cc49 ANO -vizual
  zelena cara             #06d7c1
  oranzova                #f15f42
 
@@ -23,32 +23,89 @@ body {
 /* ----- zde zacni psat vlastni css ----- */
  /* odstranit margin a padding, aby se body roztahlo na cele zarizeni*/
 body {
+    background-color: #f5f5f5;
     font-family: 'Rubik', sans-serif;
+    font-size: 14px;
     font-weight: 400;
     margin: 0;
     padding: 0;
 }
-/* výšku a sirku mam danou (viz obrazek), zbozi = hlavni kontejner; margin - kontejner*/
+/* výšku a sirku mam danou (viz obrazek), zbozi = hlavni kontejner; 
+margin - nahore 150px a ostatni se prizpusobi AUTO;
+display:flex = aktivuju flexbox na rodiči v CSS + potomci se
+stávají flex items automaticky, tj. VIZUAL a DETAILY */
 .zbozi {
     width: 670px;
-    height:440px;
+    height: 440px;
     margin: 150px auto auto auto;
     display: flex;
+    box-shadow: 5px 2px 2px grey;
 }
-
+/* pozadí barevný přechod (linear gradient: barva, barva; padding 30px
+viz vysledny obrazek = odskoci text od okraje;
+sirka je polovina zbozi, flex-grow je pomer, jakým se položka bude zvětšovat
+vůči ostatním položkám, tj. číslo, které značí poměr*/
 .vizual {
     background: linear-gradient(#06d7c1, #50cc49);
+    color:  #f5f5f5;
     padding: 30px;
     width: 50%;
-    flex-grow:1;
+    flex-grow: 1;
+    position: relative;
 }
+
+/*barva písma = svetle sede pozadi*/
+.slogan {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bota {
+    position: absolute;
+    left: -20%;
+}
+/* co těch 30px?????*/
+.cenovka {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: right;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    
+}
+.zaruka{
+    font-size: 12px;
+    font-weight: 400;
+}
+/*sirka je polovina zbozi*/
 .detaily{
     padding: 30px;
     width: 50%;
     flex-grow: 1;
 }
 
-h1 {
+h1,
+h2 {
+    font-size: 20px;
     font-weight: 500;
+    text-transform: uppercase;
+}
+h2 {
+    font-size: 14px;
+    font-weight: 500; 
+}
+.produkt {
+    color: #959595;
 }
 
+li {
+    display: inline-block;
+}
+
+.akce {
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #f15f42;
+    width: 30%;
+}
