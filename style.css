@@ -40,14 +40,14 @@ box-shadow: dolni + horni + blurred effect* + barva*/
     height: 440px;
     margin: 150px auto auto auto;
     display: flex;
-    box-shadow: 5px 5px 20px grey;
+    box-shadow: 8px 8px 15px #959595;
     border-radius: 8px;
 }
 
 /* pozadí barevný přechod (linear gradient: barva, barva; padding 30px
 viz vysledny obrazek = odskoci text od okraje;
 sirka je polovina zbozi, flex-grow je pomer, jakým se položka bude zvětšovat
-vůči ostatním položkám, tj. číslo, které značí poměr*/
+vůči ostatním položkám, tj. číslo, které značí poměr = pro responzivitu webu*/
 .vizual {
     background: linear-gradient(#06d7c1, #50cc49);
     border-radius: 8px 0 0 8px;
@@ -58,19 +58,19 @@ vůči ostatním položkám, tj. číslo, které značí poměr*/
     position: relative;
 }
 
-/*barva písma = svetle sede pozadi*/
+/*barva písma = svetle sede pozadi, 30px odshora pro volný prostor*/
 .slogan {
     font-size: 16px;
     font-weight: 500;
     margin-top: 30px;
 }
-
+/*potomek .bota přesahuje rodiče .vizual = vlevo minusove hodnoty*/
 .bota {
     position: absolute;
     left: -20%;
 }
 
-/* co těch 30px?????*/
+/*potomek .cenovka (tj. včetně .cena a .zaruka) se pozicuje vůči rodiči .vizual = 30px zprava od okraje a 30px zespoda*/
 .cenovka {
     font-size: 28px;
     font-weight: 500;
@@ -85,7 +85,8 @@ vůči ostatním položkám, tj. číslo, které značí poměr*/
     font-size: 12px;
     font-weight: 400;
 }
-/*sirka je polovina zbozi*/
+/*width = sirka je polovina zbozi; flex-grow je pomer, jakým se položka bude zvětšovat
+vůči ostatním položkám, tj. číslo, které značí poměr = pro responzivitu webu*/
 .detaily{
     padding: 30px;
     width: 50%;
@@ -108,47 +109,54 @@ h2 {
 .produkt {
     color: #959595;
 }
-
+/*border-bottom = 1px tlustá plná (solid) čára v barve (#06d7c1)*/
 .popis {
     padding-bottom: 30px;
     border-bottom: 1px solid #06d7c1;
 }
-
+/*30px shora od okraje (margin) boxíku*/
 .parametr {
     margin-top: 30px;
 }
-
+/*odstranit padding*/
 .velikosti {
     padding: 0;
 }
-
+/*seznam li = velikosti; inline-block = velikosti vedle sebe; každá má margin zleva a padding koleme sebe;
+border-radius: 50% = kroužek, parametry viz li:hover*/
 li {
     display: inline-block;
     margin-left: 5px;
     padding: 5px;
     border-radius: 50%;
 }
-
+/*po přejetí kurzem (hover pro ) přes číslo se objeví oranžový kroužek kolem velikosti;
+*/
 li:hover {
     border: 1px solid #f15f42;
 }
-
+/*ma byt zvyraznena velikost 38, tj. bez hover; border pro čáru (tloušťka 1px, plná, barva*/
 .vybrana {
     border: 1px solid #f15f42;
 }
-
+/*text-transform = kapitalky (uppercase); text-align = text zarovnat do bloku (center);
+ padding mezi "do kosiku" (content) a zbytkem oranzoveho tlacitka (border);
+ celeho oranzove tlacitko ma byt 30px od dolniho okraje .zbozi (odszeni pomoci bottom);
+ display: inline-block (řádkový element v box modelu, obsahuje "<a>");
+ border-radius = zakulacení rohu, pozicování na rodice (.detaily)*/
 .akce {
     text-transform: uppercase;
     text-align: center;
     background-color: #f15f42;
-    padding: 10px 25px;
+    padding: 15px 30px;
     display: inline-block;
     position: absolute;
     bottom: 30px;
     border-radius: 8px;
 }
+/*text-decoration odstrani modre zvyraneni "do kosiku"*/
 .tlacitko {
     text-decoration: none;
     color: white;
-    width: 25px;
+    width: 25px; /*width asi nemusi byt zde zadano?*/
 }
